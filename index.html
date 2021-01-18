@@ -1,0 +1,654 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
+    <meta name="description" content="ADR-Traffic — Перевозка опасных грузов на 30% дешевле конкурентов.
+    Онлайн калькулятор стоимости грузоперевозки. Работаем без посредников уже более 10 лет.
+    Используем собственный автопарк и строго соблюдаем все требования ДОПОГ. Отправляем груз
+    оперативно день в день, сборные перевозки от 1-го кг. Определение класса опасности груза онлайн.">
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <link rel="stylesheet" type="text/css" href="styles/jquery.flexdatalist.css">
+    <link rel="shortcut icon" type="image" href="img/icons/favicon-new.png">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-180939107-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'UA-180939107-1');
+    </script>
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+            new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+        j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+        'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-TSKPD9B');</script>
+    <!-- End Google Tag Manager -->
+    <!-- Yandex.Metrika counter -->
+    <script type="text/javascript" >
+        (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+            m[i].l=1*new Date();k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
+        (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+
+        ym(68472016, "init", {
+            clickmap:true,
+            trackLinks:true,
+            accurateTrackBounce:true,
+            webvisor:true
+        });
+    </script>
+    <noscript><div><img src="https://mc.yandex.ru/watch/68472016" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+    <!-- /Yandex.Metrika counter -->
+    <!-- CALL TRACKING SCRIPT START -->
+    <script type="text/javascript">
+        var __cs = __cs || [];
+        __cs.push(["setCsAccount", "HM1NygCV3xUbcRhu9u_SEqKur1n_piAQ"]);
+    </script>
+    <script type="text/javascript" async src="https://app.uiscom.ru/static/cs.min.js"></script>
+    <!-- CALL TRACKING SCRIPT END -->
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="js/jquery.validate.min.js"></script>
+    <script src="js/slick.min.js"></script>
+    <script src="js/jquery.flexdatalist.min.js"></script>
+    <title>Перевозка опасных грузов по России и СНГ / ADR-Traffic</title>
+</head>
+<body>
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TSKPD9B"
+                      height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+    <header>
+        <div class="container">
+            <div class="navbar">
+                <a class="navbar-logo-link" href="index.html">
+                    <img class="navbar-logo-img" alt="ADR-Traffic" src="img/logo-new.png">
+                </a>
+                <div class="navbar-contacts">
+                    <div class="navbar-contacts-email">
+                    <a href="mailto:info@adrtraffic.ru">info@adrtraffic.ru</a>
+                    </div>
+                    <div class="navbar-contacts-phone-wrapper">
+                        <a class="navbar-contacts-phone" href="tel:+74951850550">+7(495)185-05-50</a>
+                        <span class="navbar-contacts-worktime">пн-пт с 9:00 до 20:00 по МСК</span>
+                        <span class="navbar-contacts-whatsapp-info">бесплатно по
+                            <a class="navbar-contacts-whatsapp-info-link"  href="https://api.whatsapp.com/send?phone=79683594225" target="_blank">WhatsApp</a>
+                        </span>
+                    </div>
+                    <a class="navbar-contacts-whatsapp" href="https://api.whatsapp.com/send?phone=79683594225" target="_blank">
+                        <img class="navbar-contacts-whatsapp-img" src="img/icons/whatsapp-hero-img.png">
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header>
+    <main>
+        <div class="hero">
+            <video class="hero-bg" src="img/bg-video.mp4" autoplay loop muted playsinline></video>
+            <div class="container">
+                <h1 class="hero-title">
+                    Перевозка опасных грузов <br>на <span class="text-bold-main-color">30%</span> <wbr>дешевле конкурентов
+                </h1>
+                <div class="hero-adv-wrapper">
+                    <div class="hero-adv-group">
+                        <img class="hero-adv-icon" src="img/icons/check-new.png">
+                        <div class="hero-adv-desc">Более <span class="text-bold-main-color">10</span> лет опыта работы</div>
+                    </div>
+                    <div class="hero-adv-group">
+                        <img class="hero-adv-icon" src="img/icons/check-new.png">
+                        <div class="hero-adv-desc">Отправка груза день в день</div>
+                    </div>
+                    <div class="hero-adv-group">
+                        <img class="hero-adv-icon" src="img/icons/check-new.png">
+                        <div class="hero-adv-desc">Собственный автопарк</div>
+                    </div>
+                    <div class="hero-adv-group">
+                        <img class="hero-adv-icon" src="img/icons/check-new.png">
+                        <div class="hero-adv-desc">Сборные перевозки от 1кг</div>
+                    </div>
+                    <div class="hero-adv-group">
+                        <img class="hero-adv-icon" src="img/icons/check-new.png">
+                        <div class="hero-adv-desc">Работаем без посредников</div>
+                    </div>
+                    <div class="hero-adv-group">
+                        <img class="hero-adv-icon" src="img/icons/check-new.png">
+                        <div class="hero-adv-desc">Строгое соблюдение ДОПОГ</div>
+                    </div>
+                </div>
+                <div class="hero-offer">
+                    <div class="hero-offer-desc">
+                        <div class="hero-offer-tip">
+                            Рассчитайте стоимость перевозки за <span class="text-bold-main-color">20</span> секунд – воспользуйтесь нашим онлайн
+                            калькулятором или оставьте заявку и мы с Вами свяжемся в течение минуты.
+                        </div>
+                        <button class="hero-offer-button button-overlay" id="hero-offer-button">Калькулятор грузоперевозки</button>
+                    </div>
+                    <form class="hero-offer-form" id="hero-form">
+                        <label class="hero-offer-form-label">
+                            <input class="hero-offer-form-input" name="hero_name" placeholder="Ваше имя">
+                        </label>
+                        <label class="hero-offer-form-label">
+                            <input class="hero-offer-form-input" name="hero_phone" placeholder="Контактный номер">
+                        </label>
+                        <button class="hero-offer-form-button button-overlay" type="submit">Оставить заявку</button>
+                        <div class="politics">
+                            Ознакомьтесь с нашей <a class="politics-a" href="docs/politika-adr-traffic.pdf" target="_blank">политикой конфиденциальности</a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="partners" data-aos="fade-up">
+            <div class="partners-title">С нами работают компании, известные по всей стране.</div>
+            <div class="partners-img-wrapper">
+                <img class="partners-img" src="img/partners/logo-sibur.png">
+                <img class="partners-img" src="img/partners/logo-ppg.png">
+                <img class="partners-img" src="img/partners/logo-rosoboronexport.png">
+                <img class="partners-img partners-img-first-gone" src="img/partners/logo-henkel.png">
+                <img class="partners-img partners-img-third-gone" src="img/partners/logo-himprom.png">
+                <img class="partners-img" src="img/partners/logo-kalashnikov.png">
+                <img class="partners-img" src="img/partners/logo-rielta.png">
+                <img class="partners-img partners-img-second-gone" src="img/partners/logo-tikkurila.png">
+            </div>
+        </div>
+        <div class="services" data-aos="fade-up">
+            <div class="container">
+                <div class="services-wrapper">
+                    <div class="services-block">
+                        <div class="services-block-square">
+                            <img class="services-block-square-img" src="img/icons/icon-11-new.png">
+                        </div>
+                        <div class="services-block-text-wrapper">
+                            <div class="services-block-title">Всё официально</div>
+                            <div class="services-block-description">
+                                Имея большой опыт работы, мы знаем все тонкости подготовки, подписания и оформления документов.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="services-block">
+                        <div class="services-block-square">
+                            <img class="services-block-square-img" src="img/icons/icon-3-new.png">
+                        </div>
+                        <div class="services-block-text-wrapper">
+                            <div class="services-block-title">По России и СНГ</div>
+                            <div class="services-block-description">
+                                Обеспечим доставку груза из точки А в точку Б, где бы они не находились.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="services-block">
+                        <div class="services-block-square">
+                            <img class="services-block-square-img" src="img/icons/icon-7-new.png">
+                        </div>
+                        <div class="services-block-text-wrapper">
+                            <div class="services-block-title">Професиональные сотрудники</div>
+                            <div class="services-block-description">
+                                Мы сосредоточены на высоком уровне знаний опасных грузов и комфорта
+                                для наших клиентов.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="services-divider"></div>
+                <div class="services-wrapper">
+                    <div class="services-block">
+                        <div class="services-block-square">
+                            <img class="services-block-square-img" src="img/icons/icon-13-new.png">
+                        </div>
+                        <div class="services-block-text-wrapper">
+                            <div class="services-block-title">Сборные перевозки</div>
+                            <div class="services-block-description">
+                                Совместная транспортировка грузов наших клиентов позволит вам сэкономить на
+                                доставке груза массой от 1-го кг.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="services-block">
+                        <div class="services-block-square">
+                            <img class="services-block-square-img" src="img/icons/icon-4-new.png" style="transform: translateX(4px)">
+                        </div>
+                        <div class="services-block-text-wrapper">
+                            <div class="services-block-title">Отслеживание</div>
+                            <div class="services-block-description">
+                                Благодаря современным навигационным системам Вы в любой момент
+                                можете узнать, где находится Ваш груз.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="services-block">
+                        <div class="services-block-square">
+                            <img class="services-block-square-img" src="img/icons/icon-12-new.png">
+                        </div>
+                        <div class="services-block-text-wrapper">
+                            <div class="services-block-title">Погрузка, разгрузка, хранение</div>
+                            <div class="services-block-description services-block-description-fix">
+                                Контролируем качество всей цепочки перевозоки, от обработки грузов
+                                до храненя на одном из наших складов.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="about" data-aos="fade-up">
+            <div class="container">
+                <div class="about-text-wrapper">
+                    <h2 class="about-title">О компании</h2>
+                    <div class="about-desc">
+                        Наша компания работает более 10 лет на рынке.
+                        Мы специализируемся на перевозке опасных и особо опасных грузов,
+                        используя исключительно собственный автопарк. Опытные сотрудники обеспечат
+                        индивидуальный подход к каждому клиенту. С множеством предоставляемых нами услуг
+                        Вы можете ознакомиться на данном сайте.
+                    </div>
+                </div>
+                <div class="about-numbers">
+                    <div class="about-numbers-block">
+                        <div class="about-numbers-block-count">10</div>
+                        <div class="about-numbers-block-description">Лет работы</div>
+                    </div>
+                    <div class="about-numbers-divider"></div>
+                    <div class="about-numbers-block">
+                        <div class="about-numbers-block-count">82</div>
+                        <div class="about-numbers-block-description">Авто в парке</div>
+                    </div>
+                    <div class="about-numbers-divider about-numbers-divider-gone"></div>
+                    <div class="about-numbers-block">
+                        <div class="about-numbers-block-count">7000</div>
+                        <div class="about-numbers-block-description">Направлений</div>
+                    </div>
+                    <div class="about-numbers-divider"></div>
+                    <div class="about-numbers-block">
+                        <div class="about-numbers-block-count">9</div>
+                        <div class="about-numbers-block-description">Классов опасности</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="calc" data-aos="fade-up">
+            <div class="container">
+                <h2 class="calc-title">Калькулятор стоимости грузоперевозки</h2>
+                <div class="calc-wrapper">
+                    <div class="calc-cars-wrapper">
+                        <div class="calc-cars-tip">
+                            Если вы не знаете какой конкретно тип транспорта или класс опасности подходит вам -
+                            оставляйте поля пустыми, мы проконсультируем вас по телефону.
+                        </div>
+                        <div class="calc-cars">
+                            <div class="calc-cars-title">Тип транспорта</div>
+                            <div class="calc-cars-type">
+                                <div class="calc-cars-type-text calc-cars-type-text-active" id="calc-cars-cisterna">Цистерна</div>
+                                <div class="calc-cars-type-divider"></div>
+                                <div class="calc-cars-type-text" id="calc-cars-refrizherator">Рефрижератор</div>
+                                <div class="calc-cars-type-divider"></div>
+                                <div class="calc-cars-type-text" id="calc-cars-tent">Тент</div>
+                                <div class="calc-cars-type-divider"></div>
+                                <div class="calc-cars-type-text" id="calc-cars-sbornyi">Сборный</div>
+                                <div class="calc-cars-type-divider"></div>
+                                <div class="calc-cars-type-text" id="calc-cars-isoterm">Изотерм</div>
+                                <div class="calc-cars-type-divider"></div>
+                                <div class="calc-cars-type-text" id="calc-cars-konteiner">Контейнер</div>
+                                <div class="calc-cars-type-divider"></div>
+                                <div class="calc-cars-type-text" id="calc-cars-zhd-vagon">Ж\д вагон</div>
+                                <div class="calc-cars-type-divider"></div>
+                                <div class="calc-cars-type-text" id="calc-cars-zhd-konteiner">Ж\д контейнер</div>
+                                <div class="calc-cars-type-divider"></div>
+                                <div class="calc-cars-type-text" id="calc-cars-samolet">Самолёт</div>
+                            </div>
+                            <img class="calc-cars-img" src="img/cars/calc-cars-cisterna-grey.gif">
+                        </div>
+                    </div>
+                    <form class="calc-form" id="calc-form">
+                        <label class="calc-form-label" for="calc-form-input-name-id">
+                            <input class="calc-form-input" id="calc-form-input-name-id" name="calc_name" placeholder="Как Вас зовут?">
+                        </label>
+                        <label class="calc-form-label" for="calc-form-input-phone-id">
+                            <input class="calc-form-input" id="calc-form-input-phone-id" name="calc_phone" placeholder="Контактный номер">
+                        </label>
+                        <label class="calc-form-label" for="calc-form-input-email-id">
+                            <input class="calc-form-input" id="calc-form-input-email-id" name="calc_email" placeholder="E-mail">
+                        </label>
+                        <label class="calc-form-label" for="calc-form-input-from-id">
+                            <input class="calc-form-input" id="calc-form-input-from-id" name="calc_from" placeholder="Откуда">
+                        </label>
+                        <label class="calc-form-label" for="calc-form-input-to-id">
+                            <input class="calc-form-input" id="calc-form-input-to-id" name="calc_to" placeholder="Куда">
+                        </label>
+                        <label class="calc-form-label" for="calc-form-input-load-id">
+                            <input class="calc-form-input" id="calc-form-input-load-id" name="calc_load" placeholder="Что за груз?">
+                        </label>
+                        <div class="calc-form-class-wrapper">
+                            <div class="calc-form-class-title">Класс опасности</div>
+                            <div class="calc-form-class-li">
+                                <div class="calc-form-class-li-number" id="calc-form-class-1">1</div>
+                                <div class="calc-form-class-li-divider"></div>
+                                <div class="calc-form-class-li-number" id="calc-form-class-2">2</div>
+                                <div class="calc-form-class-li-divider"></div>
+                                <div class="calc-form-class-li-number" id="calc-form-class-3">3</div>
+                                <div class="calc-form-class-li-divider"></div>
+                                <div class="calc-form-class-li-number" id="calc-form-class-4">4</div>
+                                <div class="calc-form-class-li-divider"></div>
+                                <div class="calc-form-class-li-number" id="calc-form-class-5">5</div>
+                                <div class="calc-form-class-li-divider"></div>
+                                <div class="calc-form-class-li-number" id="calc-form-class-6">6</div>
+                                <div class="calc-form-class-li-divider"></div>
+                                <div class="calc-form-class-li-number" id="calc-form-class-7">7</div>
+                                <div class="calc-form-class-li-divider"></div>
+                                <div class="calc-form-class-li-number" id="calc-form-class-8">8</div>
+                                <div class="calc-form-class-li-divider"></div>
+                                <div class="calc-form-class-li-number" id="calc-form-class-9">9</div>
+                            </div>
+                        </div>
+                        <div class="calc-form-mass-button-wrapper">
+                            <div class="calc-form-mass-wrapper">
+                                <div class="calc-form-mass-title">Масса груза</div>
+                                <div class="calc-form-mass-mini-form">
+                                    <label class="calc-form-mass-mini-form-label" for="calc-form-mass-mini-form-input-id">
+                                        <input class="calc-form-mass-mini-form-input" id="calc-form-mass-mini-form-input-id" name="calc_mass" placeholder="69">
+                                    </label>
+                                    <div class="calc-form-mass-mini-form-divider"></div>
+                                    <div class="calc-form-mass-mini-form-mass-type-wrapper">
+                                        <div class="calc-form-mass-mini-form-mass-type" id="calc-form-mass-tonn">тонн</div>
+                                        <div class="calc-form-mass-mini-form-mass-type-divider"></div>
+                                        <div class="calc-form-mass-mini-form-mass-type" id="calc-form-mass-kg">кг</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <button type="submit" class="calc-form-button button-overlay">Рассчитать</button>
+                            <div class="politics">
+                                Ознакомьтесь с нашей <a class="politics-a" href="docs/politika-adr-traffic.pdf" target="_blank">политикой конфиденциальности</a>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="docs" data-aos="fade-up">
+            <div class="container">
+                <div class="docs-img-wrapper">
+                    <a href="docs/company.pdf" target="_blank">
+                        <img class="docs-img" alt="Уставные документы" src="img/docs/ustavnie-new.png">
+                    </a>
+                    <a href="docs/company.pdf" target="_blank">
+                        <img class="docs-img" alt="Допог на автомобиль" src="img/docs/dopog-auto-new.png">
+                    </a>
+                    <a href="docs/driver.pdf" target="_blank">
+                        <img class="docs-img" alt="Допог на водителя" src="img/docs/dopog-driver-new.png">
+                    </a>
+                </div>
+                <div class="docs-text-wrapper">
+                    <h2 class="docs-title">Документы</h2>
+                    <div class="docs-desc">
+                        У нас имеется всё необходимое для безопасного передвижения груза, водителя и автомобиля.
+                        Нажмите на интересующий Вас документ, чтобы изучить его.
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="autopark" data-aos="fade-up">
+            <div class="container">
+                <div class="autopark-text-wrapper">
+                    <h2 class="autopark-title">Автопарк</h2>
+                    <div class="autopark-desc">
+                        Наш автопарк — это <span class="text-bold-main-color">82</span> машины от
+                        ведущих производителей таких как Volvo, Man, Mersedes, Scania, Daf, Renault
+                        не старше 5-ти лет и множество прицепов для перевозки любого типа опасных грузов.
+                    </div>
+                </div>
+                <div class="autopark-img-wrapper">
+                    <img class="autopark-img" src="img/cars.png">
+                </div>
+            </div>
+        </div>
+        <div class="photos" data-aos="fade-up">
+            <div class="container">
+                <div class="photos-img-wrapper">
+                    <img class="photos-img" src="img/photos-collab-new.png">
+                </div>
+                <div class="photos-text-wrapper">
+                    <h2 class="photos-title">Фотографии</h2>
+                    <div class="photos-desc">
+                        То, что для вас покажется качественной работой, для нас является повседневной жизнью.
+                        Больше фото можно посмотреть в нашем
+                        <a class="photos-desc-link" href="https://www.instagram.com/adrtraffic" target="_blank">
+                            Instagram >
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="map" data-aos="fade-up">
+            <div class="container">
+                <h2 class="map-title">
+                    <span class="text-bold-main-color">27</span> удобных терминалов по всем самым популярным направлениям России
+                </h2>
+                <div class="map-img-wrapper">
+                    <img class="map-img" src="img/map.png">
+                </div>
+            </div>
+        </div>
+        <div class="detect" data-aos="fade-up">
+            <div class="container">
+                <h2 class="detect-title">Определение класса опасности груза онлайн</h2>
+                <div class="detect-wrapper">
+                    <div class="detect-card-wrapper">
+                        <div class="detect-card-name">Пиротехника</div>
+                        <div class="detect-card-class">Класс опасности №1</div>
+                        <div class="detect-card-about">Взрывчатые материалы</div>
+                        <div class="detect-card-img-wrapper">
+                            <img class="detect-card-img" src="img/signs/1.2.png">
+                            <img class="detect-card-img" src="img/signs/1.1.png">
+                            <img class="detect-card-img" src="img/signs/1.3.png">
+                            <img class="detect-card-img" src="img/signs/1.4.png">
+                        </div>
+                    </div>
+                    <div class="detect-search-wrapper">
+                        <div class="detect-search">
+                            <img class="detect-search-img" src="img/icons/icon-search.svg">
+                            <input type='text'
+                                   placeholder='Название груза...'
+                                   class='detect-search-input flexdatalist'
+                                   list='detect-datalist'
+                                   data-min-length='0'>
+                            <datalist class="detect-datalist" id="detect-datalist">
+                                <option value="3" class="detect-select-option">Авиационное топливо</option>
+                                <option value="4" class="detect-select-option">Азодикарбонамид</option>
+                                <option value="2" class="detect-select-option">Азот</option>
+                                <option value="6" class="detect-select-option">Альдоль</option>
+                                <option value="5" class="detect-select-option">Алюминия нитрат</option>
+                                <option value="8" class="detect-select-option">Амилфосфат</option>
+                                <option value="1" class="detect-select-option">Аммоналы</option>
+                                <option value="1" class="detect-select-option">Аммониты</option>
+                                <option value="6" class="detect-select-option">Анилин</option>
+                                <option value="2" class="detect-select-option">Аргон</option>
+                                <option value="6" class="detect-select-option">Арсенат железа</option>
+                                <option value="2" class="detect-select-option">Арсин</option>
+                                <option value="9" class="detect-select-option">Асбест</option>
+                                <option value="9" class="detect-select-option">Асбест голубой</option>
+                                <option value="8" class="detect-select-option">Ацетилбромид</option>
+                                <option value="4" class="detect-select-option">Барий</option>
+                                <option value="5" class="detect-select-option">Бария бромат</option>
+                                <option value="9" class="detect-select-option">Бензальдегид</option>
+                                <option value="3" class="detect-select-option">Бензин</option>
+                                <option value="3" class="detect-select-option">Бензол</option>
+                                <option value="1" class="detect-select-option">Боеголовки ракет</option>
+                                <option value="1" class="detect-select-option">Бомбы</option>
+                                <option value="8" class="detect-select-option">Бром</option>
+                                <option value="5" class="detect-select-option">Бромат бария</option>
+                                <option value="2" class="detect-select-option">Водород</option>
+                                <option value="1" class="detect-select-option">Воспламенители</option>
+                                <option value="8" class="detect-select-option">Галлий</option>
+                                <option value="3" class="detect-select-option">Гексан</option>
+                                <option value="2" class="detect-select-option">Гелий</option>
+                                <option value="4" class="detect-select-option">Гидрид лития</option>
+                                <option value="8" class="detect-select-option">Гидросульфат калия</option>
+                                <option value="8" class="detect-select-option">Гидрохлорид циркония</option>
+                                <option value="9" class="detect-select-option">Двигатели</option>
+                                <option value="3" class="detect-select-option">Дизельное топливо</option>
+                                <option value="3" class="detect-select-option">Диоксан</option>
+                                <option value="5" class="detect-select-option">Диоксид свинца</option>
+                                <option value="9" class="detect-select-option">Диоксид углерода</option>
+                                <option value="6" class="detect-select-option">Железа арсенат</option>
+                                <option value="4" class="detect-select-option">Жмых</option>
+                                <option value="4" class="detect-select-option">Калий</option>
+                                <option value="8" class="detect-select-option">Калий гидросульфат</option>
+                                <option value="5" class="detect-select-option">Калия хлорат</option>
+                                <option value="8" class="detect-select-option">Карионовая кислота</option>
+                                <option value="9" class="detect-select-option">Кастровые</option>
+                                <option value="2" class="detect-select-option">Кислород</option>
+                                <option value="8" class="detect-select-option">Кислота карионовая</option>
+                                <option value="6" class="detect-select-option">Кислота крезиловая</option>
+                                <option value="8" class="detect-select-option">Коррозионные вещества</option>
+                                <option value="3" class="detect-select-option">Краска</option>
+                                <option value="6" class="detect-select-option">Крезиловая кислота</option>
+                                <option value="3" class="detect-select-option">Лаки</option>
+                                <option value="4" class="detect-select-option">Лития гидрид</option>
+                                <option value="9" class="detect-select-option">Магниты</option>
+                                <option value="3" class="detect-select-option">Мазут</option>
+                                <option value="6" class="detect-select-option">Меди цианид</option>
+                                <option value="1" class="detect-select-option">Мины</option>
+                                <option value="8" class="detect-select-option">Морфолин</option>
+                                <option value="9" class="detect-select-option">Мука</option>
+                                <option value="6" class="detect-select-option">Мышьяк</option>
+                                <option value="1" class="detect-select-option">Натоф</option>
+                                <option value="4" class="detect-select-option">Натрий</option>
+                                <option value="8" class="detect-select-option">Натрия оксид</option>
+                                <option value="6" class="detect-select-option">Натрия цианид</option>
+                                <option value="3" class="detect-select-option">Нефрас</option>
+                                <option value="3" class="detect-select-option">Нефть</option>
+                                <option value="6" class="detect-select-option">Никотин</option>
+                                <option value="5" class="detect-select-option">Нитрат алюминия</option>
+                                <option value="8" class="detect-select-option">Оксид натрия</option>
+                                <option value="5" class="detect-select-option">Органические пироксиды</option>
+                                <option value="4" class="detect-select-option">Пентаборан</option>
+                                <option value="6" class="detect-select-option">Пестициды</option>
+                                <option value="5" class="detect-select-option">Пироксиды</option>
+                                <option value="1" class="detect-select-option">Пиротехника</option>
+                                <option value="1" class="detect-select-option">Порох</option>
+                                <option value="4" class="detect-select-option">Рубидий</option>
+                                <option value="5" class="detect-select-option">Свинца диоксид</option>
+                                <option value="2" class="detect-select-option">Селан</option>
+                                <option value="1" class="detect-select-option">Снаряды</option>
+                                <option value="3" class="detect-select-option">Сырая нефть</option>
+                                <option value="4" class="detect-select-option">Табачная пыль</option>
+                                <option value="5" class="detect-select-option">Талий</option>
+                                <option value="1" class="detect-select-option">Торпеды</option>
+                                <option value="1" class="detect-select-option">Тротил</option>
+                                <option value="2" class="detect-select-option">Углекислота</option>
+                                <option value="9" class="detect-select-option">Углерода диоксид</option>
+                                <option value="4" class="detect-select-option">Уголь</option>
+                                <option value="2" class="detect-select-option">Хлор</option>
+                                <option value="5" class="detect-select-option">Хлорад цинка</option>
+                                <option value="5" class="detect-select-option">Хлорат калия</option>
+                                <option value="6" class="detect-select-option">Цианид меди</option>
+                                <option value="6" class="detect-select-option">Цианид натрия</option>
+                                <option value="6" class="detect-select-option">Цианид цинка</option>
+                                <option value="5" class="detect-select-option">Цинка хлорад</option>
+                                <option value="6" class="detect-select-option">Цинка цианид</option>
+                                <option value="8" class="detect-select-option">Циркония гидрохлорид</option>
+                                <option value="2" class="detect-select-option">Этилен</option>
+                                <option value="3" class="detect-select-option">Эфир</option>
+                            </datalist>
+                        </div>
+                        <div class="detect-tip">
+                            Мы сделали удобный поиск,
+                            который поможет вам определить
+                            класс опасности груза по <span class="text-bold-main-color">73</span>
+                            самым популярным наименованиям
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <footer data-aos="fade-up">
+        <div class="container">
+            <div class="footer-text-wrapper">
+                <h2 class="footer-title">Обратная связь</h2>
+                <div class="footer-text-line">Оставьте данные о Вашем грузе, и наши логисты свяжутся с вами в течение 5 минут</div>
+                <div class="footer-text-line">Мы работаем в России и СНГ</div>
+                <div class="footer-text-line">
+                    г. Москва, переулок Съезжинский, д.6, эт. 2, пом. 1, ком. 8
+                </div>
+                <div class="footer-text-line footer-phone">
+                    <a>+7(495)185-05-50</a>
+                </div>
+                <div class="footer-text-line footer-worktime">пн - пт с 9:00 до 20:00 по МСК</div>
+                <div class="footer-text-line footer-email">
+                    <a>info@adrtraffic.ru</a>
+                </div>
+                <div class="footer-text-line footer-social">Напишите нам в мессенджер </div>
+                <div class="footer-text-line footer-social-icons-wrapper">
+                    <a href="https://api.whatsapp.com/send?phone=79683594225" target="_blank">
+                        <img class="footer-social-icon" src="img/icons/whatsapp.svg">
+                    </a>
+                    <a href="https://telegram.me/adrtraffic" target="_blank">
+                        <img class="footer-social-icon" src="img/icons/telegram.svg">
+                    </a>
+                </div>
+            </div>
+            <form class="callback-form-wrapper" id="callback-form">
+                <div class="callback-form">
+                    <label class="callback-form-label" for="callback-form-input-name">
+                        <input class="callback-form-input" id="callback-form-input-name" name="callback_name" placeholder="Как вас зовут?">
+                    </label>
+                    <label class="callback-form-label" for="callback-form-input-phone">
+                        <input class="callback-form-input" id="callback-form-input-phone" name="callback_phone" placeholder="Контактный номер">
+                    </label>
+                    <label class="callback-form-label-textarea" for="callback-form-textarea">
+                        <textarea class="callback-form-textarea" id="callback-form-textarea" name="callback_load" placeholder="Данные о грузе"></textarea>
+                    </label>
+                    <button class="callback-button button-overlay" type="submit">Оставить заявку</button>
+                    <div class="politics">
+                        Ознакомьтесь с нашей <a class="politics-a" href="docs/politika-adr-traffic.pdf" target="_blank">политикой конфиденциальности</a>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <div class="container">
+            <div class="footer-credits">
+                <div class="footer-credits-company">© ООО "АДР-Трафик" 2010-2020</div>
+                <div class="footer-credits-streamline">
+                    <a href="https://streamlineicons.com/" target="_blank">
+                        icons by Streamline
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <div id="callme-phone-wrapper">
+        <div class="callme-phone-wrapper-more">
+            <img class="callme-phone-img" src="img/icons/phone-new.png">
+            <div class="callme-desc">Обратный звонок</div>
+        </div>
+        <div class="callme-up-img-wrapper">
+            <img class="callme-up-img" src="img/icons/up-new.png">
+        </div>
+    </div>
+    <div class="callme-overlay">
+    </div>
+    <div class="callme-wrapper">
+        <h2 class="callme-title">Обратный звонок</h2>
+        <img id="callme-close-button" src="img/icons/cross-new.png">
+        <form id="callme-form" class="callme-form">
+            <label class="callme-label">
+                <input class="callme-input" placeholder="Контактный номер" name="callme_phone">
+            </label>
+            <button id="callme-button" class="button-overlay" type="submit">Перезвоните мне</button>
+            <div class="politics">
+                Ознакомьтесь с нашей <a class="politics-a" href="docs/politika-adr-traffic.pdf" target="_blank">политикой конфиденциальности</a>
+            </div>
+        </form>
+    </div>
+    <div id="success-overlay">
+        <h2 class="success-title">Спасибо!</h2>
+        <div class="success-desc">В ближайшее время с вами свяжутся наши специалисты.</div>
+    </div>
+    <script src="js/main.js"></script>
+    <script>
+    </script>
+</body>
+</html>

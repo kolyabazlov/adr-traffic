@@ -1,0 +1,1337 @@
+$color-main: #3237c7
+$color-white: #ffffff
+$color-black: #252728
+$color-grey: #b3b2b2
+$color-light-grey: #f0f3f5
+$font-main: 'PT Sans', sans-serif
+$font-size-title: 32px
+$font-size-desc: 18px
+$font-size-services-title: 20px
+$font-size-services-desc: 18px
+$font-size-form-input: 20px
+$font-size-form-cars: $font-size-form-input
+$font-size-footer-text: 18px
+$font-size-calc-desc: 18px
+
+@keyframes shakePhoneImg
+  0%
+    transform: rotate(0deg)
+  40%
+    transform: rotate(0deg)
+  42%
+    transform: rotate(10deg)
+  44%
+    transform: rotate(-8deg)
+  46%
+    transform: rotate(6deg)
+  48%
+    transform: rotate(-7deg)
+  50%
+    transform: rotate(2deg)
+  52%
+    transform: rotate(-3deg)
+  54%
+    transform: rotate(10deg)
+  56%
+    transform: rotate(-8deg)
+  58%
+    transform: rotate(10deg)
+  60%
+    transform: rotate(0deg)
+  100%
+    transform: rotate(0deg)
+%setup-box-shadow
+  box-shadow: 0 1px 32px 0 rgba(0,0,0,.1)
+%setup-box-round-corners
+  border-radius: 8px
+%setup-box-borders
+  border: 2px solid $color-light-grey
+%setup-title
+  font-family: $font-main
+  font-weight: bold
+  color: $color-black
+  font-size: $font-size-title
+  line-height: 1.2
+  letter-spacing: 2px
+%setup-desc
+  font-family: $font-main
+  font-weight: normal
+  color: $color-black
+  line-height: 1.4
+  font-size: $font-size-desc
+%setup-input
+  padding: 24px 0 10px 10px
+  width: 100%
+  border: none
+  border-bottom: 2px solid $color-light-grey
+  font-family: $font-main
+  font-weight: normal
+  font-size: $font-size-form-input
+  color: $color-black
+  &:focus
+    outline: none
+
+
+
+*
+  box-sizing: border-box
+  margin: 0
+  padding: 0
+  &::-webkit-media-controls
+    display: none!important
+    -webkit-appearance: none
+  &::-webkit-media-controls-panel
+    display: none!important
+    -webkit-appearance: none
+  &::--webkit-media-controls-play-button
+    display: none!important
+    -webkit-appearance: none
+  &::-webkit-media-controls-start-playback-button
+    display: none!important
+    -webkit-appearance: none
+
+.container
+  margin: auto
+  display: flex
+  justify-content: center
+  width: 100%
+  max-width: 1000px
+a
+  color: inherit
+  text-decoration: none
+.button-overlay
+  overflow: hidden
+  position: relative
+  z-index: 1
+  &:after
+    background: #fff
+    content: ""
+    height: 155px
+    left: -75px
+    opacity: .2
+    position: absolute
+    top: -50px
+    transform: rotate(35deg)
+    transition: all 550ms cubic-bezier(0.19, 1, 0.22, 1)
+    width: 50px
+    z-index: -10
+  &:hover
+    &:after
+      left: 120%
+      transition: all 550ms cubic-bezier(0.19, 1, 0.22, 1)
+  &:active
+    transform: translateY(1px)
+::placeholder
+  color: $color-grey
+  opacity: 1
+.text-bold-main-color
+  font-weight: bold
+  color: $color-main
+  font-size: 1.1em
+.politics
+  font-family: $font-main
+  font-size: 13px
+  color: $color-grey
+  position: absolute
+  margin: auto
+  bottom: 5px
+  left: 50%
+  transform: translate(-50%, 0)
+  white-space: nowrap
+  @media screen and (max-width: 370px)
+    font-size: 11px
+  .politics-a
+    text-decoration: underline
+    cursor: pointer
+#callme-form
+  .politics
+    font-size: 12px
+header
+  height: 70px
+  width: 100%
+  background-color: $color-white
+  display: flex
+  .navbar
+    width: 100%
+    display: flex
+    justify-content: space-between
+    align-items: center
+    @media screen and (max-width: 800px)
+      flex-direction: column
+    .navbar-logo-link
+      cursor: pointer
+      .navbar-logo-img
+        max-height: 40px
+        @media screen and (max-width: 1000px)
+          margin-left: 20px
+        @media screen and (max-width: 800px)
+          margin: 10px auto 0 auto
+    .navbar-contacts
+      display: flex
+      color: $color-black
+      font-size: $font-size-form-input + 2px
+      align-items: center
+      @media screen and (max-width: 768px)
+        margin-top: 10px
+      @media screen and (max-width: 430px)
+        font-size: $font-size-form-input - 3px
+        margin: 0
+        width: 100%
+        justify-content: space-between
+      .navbar-contacts-email
+        font-family: $font-main
+        font-weight: bold
+        color: $color-black
+        margin-right: 40px
+        @media screen and (max-width: 425px)
+          margin: 0 0 0 10px
+      .navbar-contacts-phone-wrapper
+        position: relative
+        margin-right: 10px
+        @media screen and (max-width: 1000px)
+          margin-right: 10px
+        @media screen and (max-width: 425px)
+          margin-right: 10px
+        .navbar-contacts-phone
+          font-family: $font-main
+          font-weight: bold
+        .navbar-contacts-worktime
+          position: absolute
+          z-index: 1
+          white-space: nowrap
+          top: 22px
+          right: 0
+          font-family: $font-main
+          color: $color-grey
+          font-size: 16px
+        .navbar-contacts-whatsapp-info
+          position: absolute
+          z-index: 1
+          white-space: nowrap
+          top: 36px
+          right: 0
+          font-family: $font-main
+          color: $color-grey
+          font-size: 16px
+          display: none
+          @media screen and (max-width: 800px)
+            display: block
+          .navbar-contacts-whatsapp-info-link
+            text-decoration: underline
+            cursor: pointer
+      .navbar-contacts-whatsapp
+        max-width: 45px
+        max-height: 45px
+        padding-top: 7px
+        @media screen and (max-width: 1000px)
+          margin-right: 10px
+        @media screen and (max-width: 800px)
+          display: none
+        .navbar-contacts-whatsapp-img
+          width: 45px
+          height: 45px
+.hero
+  width: 100%
+  overflow: hidden
+  position: relative
+  min-height: 920px
+  font-family: $font-main
+  .hero-bg
+    position: absolute
+    width: 100%
+    z-index: -1
+    top: 0
+    left: 0
+    height: 900px
+    object-fit: cover
+  .container
+    flex-direction: column
+    .hero-title
+      padding-top: 35px
+      text-align: center
+      font-weight: bold
+      font-size: 36px
+      color: $color-black
+      margin: auto
+      @media screen and (max-width: 768px)
+        margin: 0 20px 0 20px
+        padding-top: 50px
+      @media screen and (max-width: 568px)
+        font-size: 30px
+        padding-top: 80px
+      @media screen and (max-width: 425px)
+        font-size: 26px
+        padding-top: 70px
+    .hero-adv-wrapper
+      margin: 30px auto auto auto
+      width: 700px
+      display: flex
+      flex-wrap: wrap
+      @media screen and (max-width: 700px)
+        align-items: center
+        flex-direction: column
+        width: 100%
+      @media screen and (max-width: 430px)
+        margin: 90px auto auto auto
+      @media screen and (max-width: 370px)
+        margin: 40px auto auto auto
+      .hero-adv-group
+        position: relative
+        width: calc(50% - 20px)
+        display: flex
+        justify-content: flex-start
+        margin: 20px 0 0 20px
+        @media screen and (max-width: 700px)
+          width: 350px
+        @media screen and (max-width: 370px)
+          margin: 20px 0 0 0
+        .hero-adv-icon
+          margin-left: 10px
+          width: 30px
+          height: 30px
+          @media screen and (max-width: 400px)
+            width: 25px
+            height: 25px
+        .hero-adv-desc
+          @extend %setup-desc
+          margin-left: 20px
+          font-size: $font-size-services-title
+          @media screen and (max-width: 400px)
+            margin-left: 10px
+    .hero-offer
+      @extend %setup-box-shadow, %setup-box-round-corners
+      margin: 30px auto auto auto
+      display: flex
+      max-width: 700px
+      background-color: $color-white
+      @media screen and (max-width: 834px)
+        max-width: none
+        margin-left: 20px
+        width: calc(100% - 40px)
+      @media screen and (max-width: 568px)
+        margin: 40px 0 0 0
+        width: 100%
+        flex-direction: column
+      .hero-offer-desc
+        padding: 40px 20px 40px 40px
+        width: 50%
+        display: flex
+        flex-direction: column
+        justify-content: space-between
+        @media screen and (max-width: 834px)
+          padding: 20px 0 40px 20px
+        @media screen and (max-width: 568px)
+          width: 100%
+          padding: 20px 20px 20px 20px
+        .hero-offer-tip
+          font-size: $font-size-calc-desc
+          color: $color-black
+          text-align: left
+        .hero-offer-button
+          @extend %setup-box-shadow, %setup-box-round-corners
+          height: 60px
+          border: none
+          outline: none
+          cursor: pointer
+          background-color: $color-main
+          color: $color-white
+          font-size: $font-size-form-input
+          letter-spacing: 2px
+          width: 100%
+          @media screen and (max-width: 568px)
+            margin-top: 20px
+      .hero-offer-form
+        position: relative
+        width: 50%
+        padding: 20px 40px 40px 20px
+        @media screen and (max-width: 834px)
+          padding: 0 20px 40px 20px
+        @media screen and (max-width: 568px)
+          width: 100%
+          padding: 0 20px 20px 20px
+        @media screen and (max-width: 425px)
+          padding: 0 20px 30px 20px
+        .hero-offer-form-label
+          .hero-offer-form-input
+            @extend %setup-input
+        .hero-offer-form-button
+          @extend  %setup-box-round-corners, %setup-box-shadow
+          height: 60px
+          //border: 2px solid $color-main
+          border: none
+          outline: none
+          cursor: pointer
+          background-color: $color-white
+          color: $color-black
+          font-size: $font-size-form-input
+          letter-spacing: 2px
+          width: 100%
+          margin-top: 40px
+          transition: .6s
+          &:hover
+            background-color: $color-main
+            color: $color-white
+          @media screen and (max-width: 568px)
+            margin-top: 20px
+.partners
+  margin-top: 40px
+  padding: 0 20px 0 20px
+  @media screen and (max-width: 568px)
+    margin-top: 150px
+  .partners-title
+    margin-bottom: 40px
+    text-align: center
+    font-family: $font-main
+    font-weight: normal
+    font-size: 18px
+    color: $color-black
+    letter-spacing: 1px
+  .partners-img-wrapper
+    display: flex
+    flex-wrap: wrap
+    justify-content: space-around
+    @media screen and (max-width: 675px)
+      justify-content: center
+    .partners-img
+      max-height: 50px
+      margin: 0 10px 0 10px
+      filter: opacity(0.7) grayscale(1)
+      @media screen and (max-width: 860px)
+        max-height: 40px
+    .partners-img-first-gone
+      @media screen and (max-width: 1270px)
+        display: none
+    .partners-img-second-gone
+      @media screen and (max-width: 1110px)
+        display: none
+    .partners-img-third-gone
+      @media screen and (max-width: 1000px)
+        display: none
+
+.services
+  margin-top: 100px
+  .container
+    display: flex
+    height: auto
+    flex-direction: row
+    justify-content: space-between
+    @media screen and (max-width: 834px)
+      flex-direction: column
+      align-items: center
+    .services-wrapper
+      width: 46%
+      display: flex
+      flex-direction: column
+      justify-content: space-between
+      align-items: flex-start
+      @media screen and (max-width: 834px)
+        padding: 0 20px 0 20px
+        width: 100%
+      @media screen and (max-width: 568px)
+        width: 100%
+        padding: 0
+      .services-block
+        display: flex
+        flex-direction: row
+        align-items: center
+        text-align: left
+        padding: 20px
+        @media screen and (max-width: 568px)
+          padding: 40px 0 0 20px
+        @media screen and (max-width: 440px)
+          flex-direction: column
+          padding: 80px 20px 0 20px
+        .services-block-square
+          @extend %setup-box-shadow, %setup-box-round-corners
+          text-align: left
+          min-width: 100px
+          min-height: 100px
+          max-width: 100px
+          max-height: 100px
+          background-color: $color-white
+          display: flex
+          align-items: center
+          @media screen and (max-width: 834px)
+            min-width: 80px
+            min-height: 80px
+            max-width: 80px
+            max-height: 80px
+          .services-block-square-img
+            margin: auto
+            width: 60px
+            height: 60px
+        .services-block-text-wrapper
+          display: flex
+          height: 100px
+          flex-direction: column
+          align-content: flex-start
+          margin-left: 40px
+          @media screen and (max-width: 568px)
+            margin: 0
+            padding: 0 20px 0 20px
+          @media screen and (max-width: 440px)
+            padding: 0 10px 0 10px
+          .services-block-title
+            font-family: $font-main
+            font-size: $font-size-services-title
+            font-weight: bold
+            color: $color-black
+            @media screen and (max-width: 834px)
+              margin-top: 10px
+            @media screen and (max-width: 440px)
+              text-align: center
+          .services-block-description
+            margin-top: 10px
+            font-family: $font-main
+            font-size: $font-size-services-desc
+            color: $color-black
+            @media screen and (max-width: 440px)
+              text-align: center
+    .services-divider
+      @media screen and (max-width: 834px)
+        width: 100%
+        border-top: 1px dashed $color-grey
+      @media screen and (max-width: 568px)
+        margin-top: 50px
+      @media screen and (max-width: 350px)
+        margin-top: 90px
+.about
+  .container
+    margin-top: 150px
+    flex-direction: column
+    @media screen and (max-width: 1000px)
+    .about-text-wrapper
+      width: 100%
+      @media screen and (max-width: 568px)
+        padding: 0 20px 0 20px
+      .about-title
+        @extend %setup-title
+        text-align: center
+        @media screen and (max-width: 568px)
+          text-align: center
+      .about-desc
+        @extend %setup-desc
+        text-align: center
+        margin: 40px auto auto auto
+        width: 70%
+        @media screen and (max-width: 568px)
+          width: 100%
+          text-align: left
+    .about-numbers
+      @extend %setup-box-shadow, %setup-box-round-corners
+      margin: 40px auto auto auto
+      width: 100%
+      display: flex
+      flex-direction: row
+      justify-content: space-evenly
+      @media screen and (max-width: 568px)
+        flex-wrap: wrap
+      .about-numbers-divider
+        height: 120px
+        width: 2px
+        background-color: $color-light-grey
+      .about-numbers-divider-gone
+        @media screen and (max-width: 568px)
+          width: 100%
+          height: 2px
+      .about-numbers-block
+        display: flex
+        flex-direction: column
+        justify-content: center
+        @media screen and (max-width: 568px)
+          flex-basis: 48%
+        .about-numbers-block-count
+          text-align: center
+          font-family: $font-main
+          font-weight: bold
+          font-size: 40px
+          color: $color-main
+        .about-numbers-block-description
+          text-align: center
+          font-family: $font-main
+          font-weight: normal
+          font-size: 20px
+          color: $color-black
+.docs
+  margin-top: 150px
+  @media screen and (max-width: 1000px)
+    padding: 0 20px 0 20px
+  @media screen and (max-width: 568px)
+    padding: 0
+  .container
+    @media screen and (max-width: 768px)
+      flex-direction: column-reverse
+    .docs-img-wrapper
+      width: 60%
+      display: flex
+      justify-content: space-between
+      @media screen and (max-width: 768px)
+        width: 100%
+        margin: 40px 0 0 0
+      a
+        outline: none
+        .docs-img
+          transition: .5s
+          cursor: pointer
+          outline: none
+          width: 100%
+          height: 100%
+          &:hover
+            transition: 0.5s
+            transform: translateY(12px)
+    .docs-text-wrapper
+      width: 40%
+      text-align: left
+      margin-left: 40px
+      @media screen and (max-width: 768px)
+        width: 70%
+        margin: auto
+        text-align: center
+      @media screen and (max-width: 568px)
+        width: 100%
+        padding: 0 20px 0 20px
+        text-align: left
+      .docs-title
+        @extend %setup-title
+        @media screen and (max-width: 768px)
+          font-size: $font-size-title - 6px
+          text-align: center
+      .docs-desc
+        @extend %setup-desc
+        margin-top: 40px
+        @media screen and (max-width: 768px)
+          margin-top: 20px
+.autopark
+  margin-top: 150px
+  @media screen and (max-width: 1000px)
+    padding: 0 20px 0 20px
+  @media screen and (max-width: 568px)
+    padding: 0
+  .container
+    @media screen and (max-width: 768px)
+      flex-direction: column
+    .autopark-text-wrapper
+      width: 40%
+      text-align: left
+      @media screen and (max-width: 768px)
+        width: 70%
+        margin: auto
+        text-align: center
+      @media screen and (max-width: 568px)
+        width: 100%
+        padding: 0 20px 0 20px
+        text-align: left
+      .autopark-title
+        @extend %setup-title
+        @media screen and (max-width: 768px)
+          font-size: $font-size-title - 6px
+          text-align: center
+      .autopark-desc
+        @extend %setup-desc
+        margin-top: 40px
+        @media screen and (max-width: 768px)
+          margin-top: 20px
+    .autopark-img-wrapper
+      margin-left: 40px
+      width: 60%
+      @media screen and (max-width: 768px)
+        width: 100%
+        margin: 40px 0 0 0
+      .autopark-img
+        width: 100%
+.photos
+  margin: 150px auto auto auto
+  @media screen and (max-width: 1000px)
+    padding: 0 20px 0 20px
+  @media screen and (max-width: 568px)
+    padding: 0
+  .container
+    @media screen and (max-width: 768px)
+      flex-direction: column-reverse
+    .photos-text-wrapper
+      width: 40%
+      text-align: left
+      margin-left: 40px
+      @media screen and (max-width: 768px)
+        width: 70%
+        margin: auto
+        text-align: center
+      @media screen and (max-width: 568px)
+        width: 100%
+        padding: 0 20px 0 20px
+        text-align: left
+      .photos-title
+        @extend %setup-title
+        @media screen and (max-width: 768px)
+          font-size: $font-size-title - 6px
+          text-align: center
+      .photos-desc
+        @extend %setup-desc
+        margin-top: 40px
+        @media screen and (max-width: 768px)
+          margin-top: 20px
+        .photos-desc-link
+          color: $color-main
+          font-weight: bold
+          cursor: pointer
+    .photos-img-wrapper
+      width: 60%
+      @media screen and (max-width: 768px)
+        width: 100%
+        margin: 40px 0 0 0
+      .photos-img
+        width: 100%
+.map
+  margin-top: 150px
+  .container
+    flex-direction: column
+    text-align: center
+    .map-title
+      @extend %setup-title
+      margin: auto
+      width: 70%
+      padding: 0 40px 0 40px
+      @media screen and (max-width: 768px)
+        width: 70%
+        font-size: $font-size-title - 6px
+      @media screen and (max-width: 568px)
+        width: 100%
+        padding: 0 20px 0 20px
+        text-align: center
+    .map-img-wrapper
+      margin-top: 40px
+      overflow: hidden
+      @media screen and (max-width: 1000px)
+        padding: 0 20px 0 20px
+      @media screen and (max-width: 768px)
+        padding: 0
+      .map-img
+        @extend %setup-box-shadow, %setup-box-round-corners
+        width: 100%
+        @media screen and (max-width: 768px)
+          max-height: 400px
+          width: auto
+          border-radius: 0
+.detect
+  .container
+    margin-top: 150px
+    font-family: $font-main
+    flex-direction: column
+    .detect-title
+      @extend %setup-title
+      text-align: center
+      @media screen and (max-width: 768px)
+        font-size: $font-size-title - 6px
+      @media screen and (max-width: 568px)
+        text-align: center
+        padding: 0 20px 0 20px
+    .detect-wrapper
+      width: 100%
+      display: flex
+      margin-top: 40px
+      @media screen and (max-width: 1000px)
+        padding: 0 20px 0 20px
+      @media screen and (max-width: 642px)
+        flex-direction: column-reverse
+      .detect-search-wrapper
+        width: 40%
+        margin-left: 40px
+        @media screen and (max-width: 1000px)
+          margin-left: 20px
+        @media screen and (max-width: 642px)
+          margin: 0
+          width: 70%
+          align-self: center
+        @media screen and (max-width: 568px)
+          width: 100%
+        .detect-search
+          @extend %setup-box-round-corners, %setup-box-shadow
+          background-color: $color-white
+          display: flex
+          .detect-search-img
+            fill: $color-main
+            width: 30px
+            height: 30px
+            align-self: center
+            margin-left: 10px
+          .detect-search-input
+            width: calc(100% - 50px)
+            padding: 14px 0 10px 10px
+            border: none
+            font-family: $font-main
+            font-weight: normal
+            font-size: $font-size-form-input
+            color: $color-black
+            &:focus
+              outline: none
+        .detect-tip
+          padding: 40px
+          font-size: $font-size-calc-desc
+          color: $color-black
+          @media screen and (max-width: 1000px)
+            padding: 20px
+          @media screen and (max-width: 642px)
+            margin-top: 40px
+            padding: 0
+      .detect-card-wrapper
+        @extend %setup-box-round-corners, %setup-box-shadow
+        background-color: $color-white
+        overflow: hidden
+        border-top-left-radius: 0
+        width: 60%
+        padding: 40px
+        text-align: center
+        font-family: $font-main
+        font-size: $font-size-services-desc + 2px
+        background-image: url("../img/hero_bg_black.png")
+        background-size: cover
+        @media screen and (max-width: 1000px)
+          padding: 20px
+        @media screen and (max-width: 642px)
+          width: 100%
+          margin-top: 40px
+        .detect-card-name
+          font-weight: bold
+          color: $color-black
+        .detect-card-class
+          font-weight: bold
+          color: $color-main
+          margin-top: 10px
+        .detect-card-about
+          font-weight: normal
+          color: $color-black
+          margin-top: 10px
+        .detect-card-img-wrapper
+          display: flex
+          justify-content: space-evenly
+          margin-top: 20px
+          .detect-card-img
+            flex-grow: 0
+            width: 109px
+            height: 109px
+            @media screen and (max-width: 834px)
+              width: 80px
+              height: 80px
+            @media screen and (max-width: 400px)
+              width: 60px
+              height: 60px
+.calc
+  margin: 150px auto auto auto
+  @media screen and (max-width: 568px)
+    margin: 150px auto auto auto
+  .container
+    flex-direction: column
+    .calc-title
+      @extend %setup-title
+      text-align: left
+      padding: 0 0 40px 10px
+      @media screen and (max-width: 834px)
+        margin-left: 40px
+      @media screen and (max-width: 768px)
+        padding: 0
+        margin: 0 20px 0 20px
+        text-align: center
+        font-size: $font-size-title - 6px
+      @media screen and (max-width: 568px)
+        text-align: center
+    .calc-wrapper
+      width: 100%
+      display: flex
+      @media screen and (max-width: 834px)
+        flex-direction: column
+      .calc-cars-wrapper
+        width: 60%
+        @media screen and (max-width: 1000px)
+          margin-left: 10px
+        @media screen and (max-width: 834px)
+          width: calc(100% - 40px)
+          margin-left: 20px
+          transform: translateY(6px)
+        @media screen and (max-width: 568px)
+          margin: 0
+          width: 100%
+        .calc-cars-tip
+          padding: 40px
+          font-family: $font-main
+          font-size: $font-size-calc-desc
+          color: $color-black
+          @media screen and (max-width: 1000px)
+            padding: 20px
+          @media screen and (max-width: 768px)
+            text-align: center
+          @media screen and (max-width: 568px)
+            text-align: left
+        .calc-cars
+          @extend %setup-box-round-corners, %setup-box-borders
+          display: flex
+          flex-wrap: wrap
+          font-family: $font-main
+          font-weight: normal
+          font-size: $font-size-form-cars
+          color: $color-grey
+          .calc-cars-title
+            padding-top: 8px
+            width: 100%
+            height: 46px
+            text-align: center
+            color: $color-black
+            border-bottom: 2px solid $color-light-grey
+          .calc-cars-type
+            width: 30%
+            display: flex
+            flex-direction: column
+            justify-content: space-evenly
+            border-right: 2px solid $color-light-grey
+            @media screen and (max-width: 425px)
+              flex-direction: row
+              flex-wrap: wrap
+              width: 100%
+              justify-content: space-between
+              align-items: baseline
+              border: none
+              border-bottom: 2px solid $color-light-grey
+            .calc-cars-type-text
+              padding: 10px
+              margin: 0 -2px 0 -2px
+              cursor: pointer
+              color: $color-black
+              @media screen and (max-width: 568px)
+                font-size: 16px
+              @media screen and (max-width: 425px)
+                max-width: 33%
+                flex-basis: 33%
+                text-align: center
+                height: 50px
+                padding: 10px 10px 10px 0
+                &:nth-child(n)
+                  border-right: 1px dashed $color-grey
+                  border-bottom: 1px dashed $color-grey
+              &:hover
+                color: $color-white
+                background-color: $color-main
+              &:last-of-type
+                border-radius: 0 0 0 8px
+                @media screen and (max-width: 425px)
+                  border-radius: 0
+            .calc-cars-type-text-active
+              color: $color-white
+              background-color: $color-main
+            .calc-cars-type-divider
+              width: 100%
+              height: 2px
+              background-color: $color-light-grey
+              @media screen and (max-width: 425px)
+                display: none
+          .calc-cars-img
+            height: 430px
+            width: 400px
+            @media screen and (max-width: 1000px)
+              margin: auto
+              align-items: center
+              width: 325px
+              height: 325px
+            @media screen and (max-width: 834px)
+              width: 400px
+              height: 400px
+            @media screen and (max-width: 768px)
+              width: 350px
+              height: 350px
+            @media screen and (max-width: 568px)
+              width: 290px
+              height: 290px
+            @media screen and (max-width: 425px)
+              width: 320px
+              height: 320px
+      .calc-form
+        @extend %setup-box-shadow, %setup-box-round-corners
+        transform: translateX(-10px)
+        background-color: $color-white
+        padding: 20px 40px 40px 40px
+        width: 40%
+        font-family: $font-main
+        font-weight: normal
+        font-size: $font-size-form-input
+        color: $color-grey
+        @media screen and (max-width: 1000px)
+          margin-right: 10px
+        @media screen and (max-width: 834px)
+          border: 2px solid $color-light-grey
+          width: calc(100% - 40px)
+          margin-left: 20px
+          box-shadow: none
+          flex-wrap: wrap
+          transform: translateY(0)
+          border-top-right-radius: 0
+          border-top-left-radius: 0
+        @media screen and (max-width: 768px)
+          padding: 0 20px 40px 20px
+        @media screen and (max-width: 568px)
+          margin: 0
+          width: 100%
+        .calc-form-label
+          @media screen and (max-width: 834px)
+            &:nth-child(2n+1)
+              margin-right: 40px
+          .calc-form-input
+            @extend %setup-input
+            @media screen and (max-width: 834px)
+              width: 44%
+            @media screen and (max-width: 568px)
+              font-size: 16px
+            @media screen and (max-width: 425px)
+              width: 100%
+        .calc-form-class-wrapper
+          width: 100%
+          .calc-form-class-title
+            text-align: center
+            color: $color-black
+            padding: 16px 0 16px 0
+          .calc-form-class-li
+            @extend %setup-box-round-corners, %setup-box-borders
+            display: flex
+            justify-content: space-around
+            height: 50px
+            .calc-form-class-li-divider
+              width: 2px
+              background-color: $color-light-grey
+            .calc-form-class-li-number
+              padding: 10px 0 5px 0
+              text-align: center
+              width: 100%
+              cursor: pointer
+              color: $color-grey
+              @media screen and (max-width: 834px)
+                padding: 10px 0 5px 0
+              &:hover
+                background-color: $color-main
+                color: $color-white
+              &:first-of-type
+                border-radius: 8px 0 0 8px
+              &:last-of-type
+                border-radius: 0 8px 8px 0
+            .calc-form-class-li-number-active
+              background-color: $color-main
+              color: $color-white
+        .calc-form-mass-button-wrapper
+          display: flex
+          justify-content: space-evenly
+          width: 100%
+          .calc-form-mass-wrapper
+            width: 50%
+            display: flex
+            flex-direction: column
+            .calc-form-mass-title
+              text-align: center
+              padding: 16px 0 16px 0
+              color: $color-black
+            .calc-form-mass-mini-form
+              @extend %setup-box-round-corners, %setup-box-borders
+              display: flex
+              justify-content: space-around
+              margin-right: 10px
+              height: 64px
+              .calc-form-mass-mini-form-divider
+                height: 100%
+                width: 2px
+                background-color: $color-light-grey
+              .calc-form-mass-mini-form-label
+                width: 50%
+                .calc-form-mass-mini-form-input
+                  width: 100%
+                  height: 100%
+                  border: none
+                  outline: none
+                  color: $color-black
+                  font-size: 32px
+                  padding: 5px 0 5px 17px
+                  border-radius: 8px 0 0 8px
+                  @media screen and (max-width: 1000px)
+                    padding: 5px 0 5px 7px
+              .calc-form-mass-mini-form-mass-type-wrapper
+                width: 50%
+                height: 60px
+                display: flex
+                flex-direction: column
+                justify-content: center
+                .calc-form-mass-mini-form-mass-type-divider
+                  width: 100%
+                  height: 2px
+                  background-color: $color-light-grey
+                .calc-form-mass-mini-form-mass-type
+                  cursor: pointer
+                  text-align: center
+                  color: $color-black
+                  height: 49%
+                  border: 2px solid rgba(0, 0, 0, 0)
+                  &:hover
+                    color: $color-white
+                    background-color: $color-main
+                    border: 2px solid $color-main
+                  &:first-of-type
+                    border-radius: 0 8px 0 0
+                  &:last-of-type
+                    border-radius: 0 0 8px 0
+                .calc-form-mass-mini-form-mass-type-active
+                  color: $color-white
+                  background-color: $color-main
+          .calc-form-button
+            @extend %setup-box-shadow, %setup-box-round-corners
+            align-self: flex-end
+            width: 50%
+            height: 60px
+            border: none
+            outline: none
+            cursor: pointer
+            margin: 2px 2px 2px 10px
+            background-color: $color-main
+            color: $color-white
+            font-size: $font-size-form-input
+            letter-spacing: 2px
+footer
+  background-color: $color-white
+  margin-top: 150px
+  .container
+    position: relative
+    display: flex
+    @media screen and (max-width: 768px)
+      flex-direction: column-reverse
+    .footer-text-wrapper
+      width: 60%
+      text-align: left
+      font-family: $font-main
+      font-size: $font-size-footer-text
+      color: $color-black
+      margin-right: 40px
+      @media screen and (max-width: 1000px)
+        margin: 0 40px 0 20px
+      @media screen and (max-width: 834px)
+        width: 50%
+      @media screen and (max-width: 768px)
+        width: calc(100% - 40px)
+      .footer-title
+        @extend %setup-title
+        text-align: center
+        @media screen and (max-width: 768px)
+          text-align: center
+          font-size: $font-size-title - 6px
+        @media screen and (max-width: 568px)
+          margin-left: -20px
+      .footer-text-line
+        margin-top: 20px
+        &:first-of-type
+          margin-top: 40px
+      .footer-social-icons-wrapper
+        .footer-social-icon
+          width: 30px
+          height: 30px
+          cursor: pointer
+          transition: .6s
+          @media screen and (max-width: 1000px)
+            width: 50px
+            height: 50px
+          &:hover
+            transform: rotate(360deg)
+    .callback-form-wrapper
+      width: 40%
+      @media screen and (max-width: 1000px)
+        margin-right: 20px
+        width: 50%
+      @media screen and (max-width: 768px)
+        margin: 0 0 0 20px
+        width: calc(100% - 40px)
+      @media screen and (max-width: 568px)
+        margin: 0
+        width: 100%
+        overflow-x: hidden
+        border-top: 2px solid $color-light-grey
+      .callback-form
+        @extend %setup-box-shadow, %setup-box-round-corners
+        position: relative
+        padding: 20px 40px 40px 40px
+        background-color: $color-white
+        margin-bottom: 40px
+        @media screen and (max-width: 768px)
+          flex-wrap: wrap
+          padding: 10px 20px 40px 20px
+        .callback-form-label
+          @media screen and (max-width: 768px)
+            &:nth-child(2n+1)
+              margin-right: 40px
+          .callback-form-input
+            @extend %setup-input
+            @media screen and (max-width: 768px)
+              width: 44%
+            @media screen and (max-width: 568px)
+              width: 100%
+        .callback-form-label-textarea
+          .callback-form-textarea
+            @extend %setup-input, %setup-box-round-corners
+            margin-top: 30px
+            width: 100%
+            height: 150px
+            padding: 20px 0 0 10px
+            resize: none
+            outline: none
+            border: 2px solid $color-light-grey
+        .callback-button
+          @extend %setup-box-shadow, %setup-box-round-corners
+          height: 60px
+          width: 100%
+          border: none
+          outline: none
+          cursor: pointer
+          margin: 40px 0 0 0
+          padding: 20px 20px 20px 20px
+          background-color: $color-main
+          color: $color-white
+          font-size: $font-size-form-input
+          letter-spacing: 2px
+  .container
+    .footer-credits
+      white-space: nowrap
+      margin-top: 10px
+      font-family: $font-main
+      display: flex
+      justify-content: center
+      .footer-credits-streamline
+        margin-left: 40px
+        text-decoration: underline
+        @media screen and (max-width: 568px)
+          display: none
+#callme-phone-wrapper
+  position: fixed
+  bottom: 20px
+  right: 10px
+  z-index: 1
+  display: flex
+  align-items: center
+  .callme-phone-wrapper-more
+    @extend %setup-box-shadow, %setup-box-round-corners
+    padding: 15px
+    display: flex
+    align-items: center
+    cursor: pointer
+    background-color: $color-white
+    transform: translateX(70px)
+    transition: .4s
+    height: 60px
+    .callme-phone-img
+      width: 30px
+      height: 30px
+      animation: shakePhoneImg 5s infinite
+    .callme-desc
+      font-family: $font-main
+      color: $color-black
+      font-size: 18px
+      margin-left: 10px
+      width: 140px
+      transition: .4s
+      white-space: nowrap
+    .callme-desc-active
+      transition: .4s
+      width: 0
+      margin-left: 0
+      color: rgba(0 , 0, 0, 0)
+  .callme-up-img-wrapper
+    @extend %setup-box-shadow, %setup-box-round-corners
+    padding: 15px 15px 12px 15px
+    margin-left: 10px
+    cursor: pointer
+    background-color: $color-white
+    transform: translateX(70px)
+    transition: .4s
+    .callme-up-img
+      width: 30px
+      height: 30px
+  .callme-up-img-wrapper-active
+    transform: translateX(0)
+    transition: .4s
+.callme-overlay
+  opacity: 0
+  display: none
+  position: fixed
+  background-color: rgba(0, 0, 0, 0.5)
+  top: 0
+  left: 0
+  width: 100vw
+  height: 100vh
+  z-index: 20
+  transition: .5s
+.callme-overlay-active
+  opacity: 1
+  transition: .5s
+.callme-wrapper
+  opacity: 0
+  display: none
+  position: fixed
+  @extend %setup-box-round-corners, %setup-box-shadow
+  background-color: $color-white
+  left: 50%
+  top: 50%
+  transform: translate(-50%, -50%)
+  padding: 40px
+  z-index: 20
+  transition: .5s
+  #callme-close-button
+    position: absolute
+    top: 20px
+    right: 20px
+    cursor: pointer
+    width: 20px
+    height: 20px
+    transform: rotate(-90deg)
+    transition: .3s
+    &:hover
+      transform: rotate(90deg)
+      transition: .3s
+  .callme-title
+    @extend %setup-title
+    font-size: 25px
+    text-align: center
+    white-space: nowrap
+  #callme-form
+    margin-top: 10px
+    display: flex
+    flex-direction: column
+    align-items: center
+    .callme-label
+      width: 100%
+      .callme-input
+        @extend %setup-input
+        width: 100%
+    #callme-button
+      @extend %setup-box-shadow, %setup-box-round-corners
+      height: 60px
+      border: none
+      outline: none
+      cursor: pointer
+      background-color: $color-main
+      color: $color-white
+      font-size: $font-size-form-input
+      letter-spacing: 2px
+      width: 100%
+      margin-top: 40px
+    .politics
+      bottom: 12px
+.callme-wrapper-active
+  opacity: 1
+  transition: .5s
+#success-overlay
+  @extend %setup-box-shadow
+  position: fixed
+  bottom: 0
+  left: 0
+  width: 100%
+  height: 0
+  z-index: 50
+  background-color: $color-main
+  font-family: $font-main
+  color: $color-white
+  text-align: center
+  transition: 0.5s
+  .success-title
+    margin-top: 20px
+    font-size: $font-size-title
+  .success-desc
+    margin: 10px 0 20px 0
+    font-size: $font-size-desc
